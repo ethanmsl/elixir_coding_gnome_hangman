@@ -1,11 +1,6 @@
 defmodule Dictionary do
-  def hello do
-    IO.puts "Hello world! 333"
+  def wordlist do
+    {:ok, words} = File.read("assets/words.txt")
+    String.split(words) |> IO.puts
   end
-end
-
-defmodule Pictionary do
-  def pello do
-    IO.puts "Pello world! 444"
-    end
 end
