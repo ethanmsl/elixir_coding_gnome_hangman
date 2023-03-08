@@ -1,18 +1,11 @@
 defmodule Dictionary do
-  @moduledoc """
-  Documentation for `Dictionary`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Dictionary.hello()
-      :world
-
-  """
   def hello do
-    IO.puts "Hello world!"
+    IO.puts "Hello world! 333"
   end
+end
+
+defmodule Pictionary do
+  def pello do
+    IO.puts "Pello world! 444"
+    end
 end
