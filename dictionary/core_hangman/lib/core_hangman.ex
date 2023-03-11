@@ -1,18 +1,18 @@
 defmodule CoreHangman do
   @moduledoc """
-  Documentation for `CoreHangman`.
+  Core logic to our "hangman" game.
+  (dark theme!)
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> CoreHangman.hello()
-      :world
-
+  instantiates ... a new game
   """
-  def hello do
-    :world
+  def new_game do
+  end
+
+  @doc """
+  takes input from player and relays to game representation
+  """
+  def play_game(game, guess) do
   end
 end
