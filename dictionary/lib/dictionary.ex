@@ -9,7 +9,7 @@ defmodule Dictionary do
   """
   def word_list_print do
     {:ok, words} = File.read("assets/words.txt")
-    String.split(words) |> IO.puts
+    words |> String.split |> IO.puts
   end
 
   # macro inclusion of the word list in our module
