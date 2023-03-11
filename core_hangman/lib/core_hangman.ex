@@ -23,7 +23,7 @@ defmodule CoreHangman do
   @doc """
   takes input from player and relays to game representation
   """
-    @spec make_guess(game, String.t) :: { game, tally }
+  # @spec make_guess(game, String.t):: { game, tally }
   def play_game(game, guess) do
   end
 end
