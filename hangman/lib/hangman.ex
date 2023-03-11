@@ -1,4 +1,4 @@
-defmodule CoreHangman do
+defmodule Hangman do
   @type state:: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
   @type game :: any
   @type tally :: %{
@@ -18,6 +18,7 @@ defmodule CoreHangman do
   """
   @spec new_game :: game
   def new_game do
+    Hangman.Impl.Game.new_game()
   end
 
   @doc """
