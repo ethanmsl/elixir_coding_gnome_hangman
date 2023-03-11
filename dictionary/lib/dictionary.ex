@@ -20,4 +20,12 @@ defmodule Dictionary do
     {:ok, words} = File.read("assets/words.txt")
     String.split(words)
   end
+
+  @doc """
+  returns a rnadom word from the list given by `word_list/0`
+  """
+  def random_word do
+    Enum.random(word_list())
+  end
+
 end
