@@ -7,7 +7,7 @@ defmodule Dictionary do
   Exploring syntax: pattern matching & piping
   Not a useful component of the larger program
   """
-  def wordlistprint do
+  def word_list_print do
     {:ok, words} = File.read("assets/words.txt")
     String.split(words) |> IO.puts
   end
