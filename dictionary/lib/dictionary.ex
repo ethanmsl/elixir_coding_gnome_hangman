@@ -12,21 +12,16 @@ defmodule Dictionary do
     String.split(words) |> IO.puts
   end
 
-  @doc """
-  returns a list of words -- cannonical word list for now
-  assumes sourcing from a specific file in relative path
-  """
-  def word_list do
-    "assets/words.txt"
+  # macro inclusion of the word list in our module
+  @word_list "assets/words.txt"
     |> File.read!()
     |> String.split()
-  end
 
   @doc """
   returns a rnadom word from the list given by `word_list/0`
   """
   def random_word do
-    word_list() 
+    @word_list
     |> Enum.random()
   end
 
