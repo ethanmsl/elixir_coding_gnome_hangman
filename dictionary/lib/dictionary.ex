@@ -17,8 +17,9 @@ defmodule Dictionary do
   assumes sourcing from a specific file in relative path
   """
   def word_list do
-    {:ok, words} = File.read("assets/words.txt")
-    String.split(words)
+    "assets/words.txt"
+    |> File.read!()
+    |> String.split()
   end
 
   @doc """
