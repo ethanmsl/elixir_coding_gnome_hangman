@@ -21,9 +21,10 @@ defmodule Hangman do
   instantiates ... a new game
   """
   @spec new_game :: game
-  def new_game do
-    Game.new_game()
-  end
+  defdelegate new_game, to: Game
+  # def new_game do
+  #   Game.new_game()
+  # end
 
   @doc """
   takes input from player and relays to game representation
