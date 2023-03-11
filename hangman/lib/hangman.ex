@@ -1,26 +1,25 @@
 defmodule Hangman do
 
-  # defaults to `, as: Game`
   alias Hangman.Impl.Game
 
-  @type state:: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
-  @type game :: Game.t
-  @type tally :: %{
+  @type   state :: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
+  @opaque game  :: Game.t
+  @type   tally :: %{
     turns_left: integer,
     game_state: state,
     letters: list(String.t),
     used: list(String.t)
 }
 
-  @moduledoc """
-  Core logic to our "hangman" game.
-  (dark theme!)
-  """
-
-  @doc """
-  instantiates ... a new game
-  """
-  @spec new_game :: game
+  # @moduledoc """
+  # Core logic to our "hangman" game.
+  # (dark theme!)
+  # """
+  #
+  # @doc """
+  # instantiates ... a new game
+  # """
+  @spec new_game() :: game
   defdelegate new_game, to: Game
   # def new_game do
   #   Game.new_game()
