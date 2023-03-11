@@ -25,7 +25,8 @@ defmodule Dictionary do
   returns a rnadom word from the list given by `word_list/0`
   """
   def random_word do
-    Enum.random(word_list())
+    word_list() 
+    |> Enum.random()
   end
 
 end
