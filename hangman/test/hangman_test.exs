@@ -1,6 +1,6 @@
-defmodule CoreHangmanTest do
+defmodule HangmanTest do
   use ExUnit.Case
-  doctest CoreHangman
+  doctest Hangman
 
   # test "greets the world" do
   #   assert CoreHangman.hello() == :world
