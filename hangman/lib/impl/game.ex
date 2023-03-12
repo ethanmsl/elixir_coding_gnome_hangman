@@ -1,5 +1,7 @@
 defmodule Hangman.Impl.Game do
 
+  alias Hangman.Type
+
   # this struct is connected to module and called via module's name
   @type t :: %__MODULE__{
     turns_left: integer,
@@ -35,15 +37,33 @@ defmodule Hangman.Impl.Game do
 
   ############################
 
+
+  ############################
+
   @spec make_move(t, String.t) :: { t, Type.tally }
   def make_move(game = %{ game_state: state}, _guess) 
   when state in [:won, :lost] do
-    { game, tally(game) }
+     game
+    |> return_with_tally()
   end
-  def make_move(game, guess) do
+  def make_move(game , guess) do
+    accept_guess(game, guess, MapSet.member?(game.used, guess))
+    |> return_with_tally()
   end
 
-@spec tally(t) :: Type.tally
+
+  ############################
+  defp accept_guess(game, _guess, _already_used = true ) do
+    %{ game | game_state: :already_used }
+  end
+
+  defp accept_guess(game, guess, _already_used ) do
+    %{ game | used: MapSet.put(game.used, guess) }
+  end
+  ############################
+
+
+  @spec tally(t) :: Type.tally
   defp tally(game) do
     %{
       turns_left: game.turns_left,
@@ -52,4 +72,9 @@ defmodule Hangman.Impl.Game do
       used: game.used |> MapSet.to_list
     }
   end
+
+  defp return_with_tally(game) do
+    { game, tally(game) }
+  end
+
 end
