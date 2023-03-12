@@ -12,6 +12,12 @@ defmodule Dictionary.Runtime.Server do
   end
 
   def random_word() do
+
+    # ~1/3 chance of crashing the module agent
+    if :random.uniform < 0.33 do
+      Agent.get(@me, fn _ -> exit(:boom) end)
+    end
+
     # **strong** coupling of `random_word()` to `start_link()`
     # by way of hard-coded (dynamic) pid reference
     Agent.get(@me, &WordList.random_word/1)
