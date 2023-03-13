@@ -12,4 +12,13 @@ defmodule Hangman.Runtime.Server do
   def init(_) do
     {:ok, Game.new_game}
   end
+  
+  def handle_call({:make_move, guess}, _from, game) do
+    {update_game, tally} = Game.make_move(game, guess)
+    {:reply, tally, update_game}
+  end
+
+  def handle_call({:tally}, _from,  game) do
+    {:reply, Game.tally(game), game}
+  end
 end
